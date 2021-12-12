@@ -5,7 +5,7 @@ var images = ["./images/1.jpg", "./images/2.jpg", "./images/3.jpg", "./images/4.
 function forwardImage() {
     if (i < (images.length -1)) {
         i++;
-        document.getElementById("slideImg").style.width = "1px";
+        document.getElementById("slideImg").style.width = "0px";
         
         setTimeout(() => {
             document.getElementById("slideImg").src = images[i];
@@ -44,4 +44,4 @@ function reverseImage() {
     }
 }
 
-setInterval(forwardImage, 5000);
+setInterval(forwardImage, 7000);
