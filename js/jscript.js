@@ -1,34 +1,47 @@
 var i = 0;
-var images = ["./images/1.jpg", "./images/2.jpg", "./images/3.jpg", "./images/4.jpg", "./images/5.jpg", "./images/6.jpg"];
+var images = ["./images/1.jpg", "./images/2.jpg", "./images/3.jpg", "./images/4.jpg", "./images/5.jpg", "./images/6.jpg",
+              "./images/7.jpg", "./images/8.jpg", "./images/9.jpg", "./images/10.jpg", "./images/11.jpg", "./images/12.jpg"];
 
 function forwardImage() {
-    if (i < images.length) {
-        document.getElementById("slideImg").src = images[i];
+    if (i < (images.length -1)) {
         i++;
-    } else {
+        document.getElementById("slideImg").style.width = "1px";
+        
+        setTimeout(() => {
+            document.getElementById("slideImg").src = images[i];
+            document.getElementById("slideImg").style.width = "100%";
+        }, 500)
+        
+    } 
+    else {
         i = 0;
+        document.getElementById("slideImg").style.width = "1px";
+        
+        setTimeout(() => {
+            document.getElementById("slideImg").src = images[i];
+            document.getElementById("slideImg").style.width = "100%";
+        }, 500)
     }
 }
 
 function reverseImage() {
-    if (i > -1) {
-        document.getElementById("slideImg").src = images[i];
+    if (i <= (images.length-1) && i >= 1) {
         i--;
-    } else {
-        i = 5;
+        document.getElementById("slideImg").style.width = "1px";
+        setTimeout(() => {
+            document.getElementById("slideImg").src = images[i];
+            document.getElementById("slideImg").style.width = "100%";
+        }, 500)
+    } 
+    else {
+        i = 11;
+        document.getElementById("slideImg").style.width = "1px";
+        
+        setTimeout(() => {
+            document.getElementById("slideImg").src = images[i];
+            document.getElementById("slideImg").style.width = "100%";
+        }, 500)
     }
 }
-
-function radio1() { document.getElementById("slideImg").src = images[0]; }
-
-function radio2() { document.getElementById("slideImg").src = images[1]; }
-
-function radio3() { document.getElementById("slideImg").src = images[2]; }
-
-function radio4() { document.getElementById("slideImg").src = images[3]; }
-
-function radio5() { document.getElementById("slideImg").src = images[4]; }
-
-function radio6() { document.getElementById("slideImg").src = images[5]; }
 
 setInterval(forwardImage, 5000);
